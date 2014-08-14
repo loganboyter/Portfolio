@@ -1,0 +1,316 @@
+﻿<!-- Header -->
+<header id="top" class="header">
+    <div class="text-vertical-center">
+        <h1>Logan Boyter</h1>
+        <h3>A full stack ASP.NET Developer</h3>
+        <br>
+        <!--<a href="#about" class="btn btn-dark btn-lg">Find Out More</a>-->
+    </div>
+</header>
+
+<!-- About -->
+<section id="about" class="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2>Logan Boyter is your next great employee</h2>
+                <p class="lead">A diligent ASP.NET Developer at Coder Camps with a strong academic background and some commercial experience. Logan is currently working on furthering his goals in becoming an amazing Full Stack Developer. With a passion for learning, and excitement for technology, Logan eagerly overcomes challenges.</p>
+            </div>
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container -->
+</section>
+
+<!-- Services -->
+<!-- The circle icons use Font Awesome's stacked icon classes. For more information, visit http://fontawesome.io/examples/ -->
+<section id="services" class="services bg-primary">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-lg-10 col-lg-offset-1">
+                <h2>My Skills</h2>
+                <div class="col-md-2 col-md-offset-4">
+                    <input style="color:gray" class="form-control" type="text" ng-model="searchText" placeholder="Search" />
+                </div>
+                <div class="row">
+                    <div class="col-md-1">
+                        <div class="btn-group" id="sortingDropdown">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                Sort By...
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a data-target="#" ng-click="reverse = false;">A->Z</a></li>
+                                <li><a data-target="#" ng-click="reverse = true;">Z->A</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <button ng-show="userName=='Admin'" class="btn btn-success" data-toggle="modal" data-target="#addSkillModal">Add Skill</button>
+                    </div>
+                </div>
+                <hr class="small">
+                <div class="row">
+                    <div class="col-md-3 col-sm-6" ng-repeat="skill in pagedSkills">
+                        <div class="service-item">
+                            <div ng-show="userName=='Admin'" class="well-sm"><button class="btn btn-danger" ng-click="deleteSkill(skill)"><i class="fa fa-times"></i></button></div>
+                            <span class="fa-stack fa-4x">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-{{skill.Icon}} fa-stack-1x text-primary"></i>
+                            </span>
+                            <h4>
+                                <strong>{{skill.Title}}</strong>
+                            </h4>
+                            <p>{{skill.Description}}</p>
+                        </div>
+                    </div>
+                    <!--<div class="col-md-3 col-sm-6">
+                        <div class="service-item">
+                            <span class="fa-stack fa-4x">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-html5 fa-stack-1x text-primary"></i>
+                            </span>
+                            <h4>
+                                <strong>HTML</strong>
+                            </h4>
+                            <p>While design is not Logan's strong suit, he is proficient in HTML.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="service-item">
+                            <span class="fa-stack fa-4x">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-css3 fa-stack-1x text-primary"></i>
+                            </span>
+                            <h4>
+                                <strong>CSS</strong>
+                            </h4>
+                            <p>While design is not Logan's strong suit, he is proficient in CSS.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="service-item">
+                            <span class="fa-stack fa-4x">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-jsfiddle fa-stack-1x text-primary"></i>
+                            </span>
+                            <h4>
+                                <strong>JavaScript</strong>
+                            </h4>
+                            <p>Logan is experienced with JavaScript and AngularJS</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="service-item">
+                            <span class="fa-stack fa-4x">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-stack-overflow fa-stack-1x text-primary"></i>
+                            </span>
+                            <h4>
+                                <strong>C#</strong>
+                            </h4>
+                            <p>Logan is skllfull in C#, including MVC, Web API, and Entity Framework</p>
+                        </div>
+                    </div>-->
+                </div>
+                <!-- /.row (nested) -->
+            </div>
+            <!-- /.col-lg-10 -->
+        </div>
+        <div class="row text-center">
+            <div class="">
+                <button class="btn btn-light {{button.prev}}" ng-click="currentPage = currentPage - 1;">Prev.</button>
+                <button class="btn btn-dark {{button.next}}" ng-click="currentPage = currentPage + 1;">Next</button>
+            </div>
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container -->
+</section>
+
+<!-- Callout -->
+<aside class="callout">
+    <div class="text-vertical-center">
+        <h1>"90% of programming is mental. The other half is physical."</h1>
+    </div>
+</aside>
+
+<!-- Portfolio -->
+<section id="portfolio" class="portfolio">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 col-lg-offset-1 text-center">
+                <h2>My Work</h2>
+                <h6>(Click for Details)</h6>
+                <hr class="small">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="portfolio-item">
+                            <button class="btn-link btn" onclick="portfolio.showModal(portfolio.wallBook);">
+                                <img class="img-portfolio img-responsive" src="/App/img/WallBook.png">
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="portfolio-item">
+                            <button class="btn-link btn" onclick="portfolio.showModal(portfolio.staffingOnline);">
+                                <img class="img-portfolio img-responsive" src="/App/img/StaffingOnline.png">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                        <div class="portfolio-item">
+                            <button class="btn-link btn" onclick="portfolio.showModal(portfolio.gitHub);">
+                                <img class="img-portfolio img-responsive" src="/App/img/GitHub.png">
+                            </button>
+                        </div>
+                    </div>
+                    <!--<a href="#" class="btn btn-dark">View More Items</a>-->
+                    <!-- /.row (nested) -->
+                </div>
+                <!-- /.col-lg-10 -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
+    </div>
+</section>
+
+<!-- Call to Action -->
+<aside class="call-to-action bg-primary">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h1>Hobbies</h1>
+                <h3>When Logan isn't programming, he's reading (Game of Thrones, Harry Potter, The Wheel of Time) or playing games with his friends (D&D, Settlers of Catan, Ticket to Ride).</h3>
+                <!--<h3>The buttons below are impossible to resist.</h3>
+                <a href="#" class="btn btn-lg btn-light">Click Me!</a>
+                <a href="#" class="btn btn-lg btn-dark">Look at Me!</a>-->
+            </div>
+        </div>
+    </div>
+</aside>
+
+<!-- Map -->
+<!--<section id="contact" class="map">
+    <iframe style="width:100%; height:100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://google.com/maps/embed/v1/place?key=AIzaSyB3sBgFhBQoh3V8W2zZbXmm7RPjyb11q4o&q=Pearland+Town+Center,Pearland+Texas"></iframe>
+    <br />
+    <small>
+        <a href="https://google.com/maps/embed/v1/place?key=AIzaSyB3sBgFhBQoh3V8W2zZbXmm7RPjyb11q4o&q=Pearland+Town+Center,Pearland+Texas"></a>
+    </small>
+</section>-->
+<!-- Footer -->
+<footer id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 col-lg-offset-1 text-center">
+                <h4>
+                    <strong>Logan Boyter</strong>
+                </h4>
+                <!--<p>11200 Broadway Street<br>Pearland, TX 77584</p>-->
+                <ul class="list-unstyled">
+                    <li><i class="fa fa-phone fa-fw"></i> (318) 344-7268</li>
+                    <li>
+                        <i class="fa fa-envelope-o fa-fw"></i>  <a href="mailto:logan_boyter@hotmail.com">logan_boyter@hotmail.com</a>
+                    </li>
+                </ul>
+                <br>
+                <ul class="list-inline">
+                    <li>
+                        <a href="http://www.linkedin.com/in/loganboyter/" target="_blank"><i class="fa fa-linkedin fa-fw fa-3x"></i></a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/loganboyter" target="_blank"><i class="fa fa-github fa-fw fa-3x"></i></a>
+                    </li>
+                    <li>
+                        <a data-toggle="modal" data-target="#commentModal" href=""><i class="fa fa-comment fa-fw fa-3x"></i></a>
+                    </li>
+                </ul>
+                <hr class="small">
+                <p class="text-muted">Copyright &copy; Logan Boyter 2014</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!--Add Skills Modal-->
+<div class="modal fade" id="addSkillModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Add a Skill</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="well-sm">
+                        <input type="text" ng-model="newSkill.Title" placeholder="Title" />
+                        <input type="text" ng-model="newSkill.Description" placeholder="Description" />
+                        <input type="text" ng-model="newSkill.Icon" placeholder="Icon" />
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" ng-click="saveSkill();">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Leave a comment modal-->
+<div class="modal fade" id="commentModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 ng-hide="userName=='Admin'" class="modal-title" id="commentModalLabel">Leave a comment</h4>
+                <h4 ng-show="userName=='Admin'" class="modal-title" id="commentModalLabel">All Comments</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="well-sm" ng-hide="userName=='Admin'">
+                        <div class="well-sm"><input class="form-control" type="text" ng-model="comment.Title" placeholder="Title" /></div>
+                        <div class="well-sm"><textarea class="form-control" style="height:200px;" ng-model="comment.Body" placeholder="Body"></textarea></div>
+                    </div>
+                    <div id="allComments" class="well-sm" ng-show="userName=='Admin'" ng-repeat="comment in comments">
+                        <h3>{{comment.Title}} - {{comment.TimeStamp}}</h3>
+                        <p>{{comment.Body}}</p>
+                        <small>-{{comment.Author}}</small>
+                        <hr />
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" ng-click="saveComment();">Save Comment</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Login Modal-->
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Login</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-group">
+                    <input class="form-control" type="text" ng-model="user.UserName" placeholder="Email" />
+                    <input class="form-control" type="password" ng-model="user.Password" placeholder="Password" />
+                </form>
+                <button ng-click="registerPage();" class="btn btn-primary">Register</button>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default" ng-click="login()">Login</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+﻿<div class="container-fluid register-page">
+
+    <h2 class="page-header text-center">Register</h2>
+
+    <form class="form-horizontal">
+        <div class="form-group" ng-class="profile.Email ? 'has-success' : 'has-error'">
+            <label for="inputEmail" class="col-sm-2 control-label">Email</label>
+            <div class="col-sm-10">
+                <input class="form-control" type="email" placeholder="Email" ng-model="profile.Email" required />
+            </div>
+        </div>
+        <div class="form-group" ng-class="profile.Password ? 'has-success' : 'has-error'">
+            <label for="password" class="col-sm-2 control-label">Password</label>
+            <div class="col-sm-10">
+                <input class="form-control" type="password" placeholder="Password" ng-model="profile.Password" required />
+            </div>
+        </div>
+        <div class="form-group" ng-class="profile.ConfirmPassword ? 'has-success' : 'has-error'">
+            <label for="confirmPassword" class="col-sm-2 control-label">Confirm Password</label>
+            <div class="col-sm-10">
+                <input class="form-control" type="password" placeholder="Password" ng-model="profile.ConfirmPassword" required />
+            </div>
+        </div>
+        <div class="col-md-6 col-md-offset-2"><input class="btn btn-primary pull-left col-sm-1" type="button" value="Submit" ng-click="register()" /></div>
+    </form>
+</div>

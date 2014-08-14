@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="PortfolioApp">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="This is a short portfolio">
+    <meta name="author" content="Logan Boyter">
+    <link rel="shortcut icon" href="~/App/img/bg.jpg">
+    <title>Logan Boyter</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="~/App/Styles/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    <link href="~/App/Styles/stylish-portfolio.css" rel="stylesheet" />
+
+    <!-- Custom Fonts -->
+    <link href="~/App/Styles/font-awesome.min.css" rel="stylesheet" />
+    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+    <!-- Navigation -->
+    <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>
+    <nav id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
+            <li class="sidebar-brand">
+                <a href="/">Logan Boyter</a>
+            </li>
+            <li>
+                <a href="#top">Home</a>
+            </li>
+            <li>
+                <a href="#about">About</a>
+            </li>
+            <li>
+                <a href="#services">Skills</a>
+            </li>
+            <li>
+                <a href="#portfolio">Portfolio</a>
+            </li>
+            <li>
+                <a href="#contact">Contact</a>
+            </li>
+            <li>
+                <a data-toggle="modal" data-target="#loginModal">Log In (To Leave Comments)</a>
+            </li>
+            <li>
+                <a href="http://devwithablog.blogspot.com/" target="_blank">Blog</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div id="content-wrapper">
+        @RenderBody()
+    </div>
+    <!--Modals-->
+    <!--Projects Modal-->
+    <div class="modal fade" id="projectModal" tabindex="-1" role="dialog" aria-labelledby="projectLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="title"></h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-9 text-center" id="desc">
+
+                        </div>
+                        <div class="col-md-3"><a id="link" href="" target="_blank" onclick="portfolio.hideModal()" class="btn btn-primary">Visit</a></div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   
+
+    <!-- jQuery Version 1.11.0 -->
+    <script src="~/App/Scripts/jquery-1.11.0.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="~/App/Scripts/bootstrap.js"></script>
+    <!--Angular-->
+    <script src="~/App/Scripts/angular.min.js"></script>
+    <script src="~/App/Scripts/angular-route.min.js"></script>
+    <!--My own script-->
+    <script src="~/App/Scripts/script.js"></script>
+    <script src="~/App/Scripts/LoginServices.js"></script>
+    <script src="~/App/Scripts/controllers.js"></script>
+</body>
+
+</html>
